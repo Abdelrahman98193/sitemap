@@ -8,6 +8,7 @@ Original file is located at
 """
 
 import requests
+import streamlit as st 
 import pandas as pd
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -36,6 +37,6 @@ def save_to_csv(links):
     print('Sitemap links saved to sitemap_links.csv')
 
 if __name__ == '__main__':
-    website_url = input('Enter the website URL to extract sitemap links: ')
+    website_url = st.text_input('Enter the website URL to extract sitemap links: ')
     sitemap_links = extract_sitemap_links(website_url)
     save_to_csv(sitemap_links)
